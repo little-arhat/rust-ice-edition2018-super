@@ -1,12 +1,9 @@
-use rand;
-
 pub trait S {
     fn s(&mut self) -> u8;
 }
 
 pub mod it {
-    use super::rand;
-    use rand::random;
+    use rand::{self, random};
 
     pub struct N;
     impl N {
@@ -17,7 +14,7 @@ pub mod it {
 
     impl super::S for N {
         fn s(&mut self) -> u8 {
-            random() * rand::random()
+            random::<u8>() * rand::random::<u8>()
         }
     }
 }
